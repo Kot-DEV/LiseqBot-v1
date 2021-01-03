@@ -1,5 +1,5 @@
 const discord = require('discord.js');
-const config = require('./../../config');
+const config = require('../../config');
 const canvacord = require("canvacord");
 
 module.exports.run = async(bot, message, args) => {
