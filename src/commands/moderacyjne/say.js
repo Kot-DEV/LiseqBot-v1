@@ -2,13 +2,6 @@ const discord = require('discord.js');
 const config = require('./../../config')
 module.exports.run = (bot, message, args) => {
     if(message.content.startsWith(config.prefix + "say")) {
-        if(!message.member.hasPermission('MANAGE_MESSAGES')) {
-            let embed = new discord.MessageEmbed()
-            embed.setTitle('Brak uprawnien')
-            embed.setDescription('Nie masz uprawnien do uzycia komendy say. \n Potrzebne uprawnienie to `MANAGE_MESSAGES`')
-            message.channel.send(embed);
-            return;
-        } 
         if(args[0] && args[1]) {
             if(args[0] != "-here") {
                 if(bot.channels.cache.get(args[0])) {
