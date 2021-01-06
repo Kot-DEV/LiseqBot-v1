@@ -9,6 +9,9 @@
     "web": "node ./src/web/web.js",
     "lint": "eslint ."
   },
+  "engines": {
+    "node": "12.18.3"
+  },
   "keywords": [],
   "author": "PolskiLisek",
   "license": "ISC",
@@ -34,5 +37,5 @@
     "mongoose": "^5.11.9",
     "quickdb": "^1.0.5",
     "ytdl-core": "^4.2.1"
-  }
+  } 
 }
