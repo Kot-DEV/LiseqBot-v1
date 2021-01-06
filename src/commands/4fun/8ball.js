@@ -1,6 +1,4 @@
 const discord = require('discord.js');
-const e = require('express');
-const { random } = require('mathjs');
 const config = require('./../../config');
 module.exports.run = (bot, message, args) => {
     if(!message.content.startsWith(config.prefix + '8ball')) return;
