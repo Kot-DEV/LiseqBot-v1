@@ -40,7 +40,8 @@ module.exports.run = async (bot, message, args) => {
             'l!clear - Czyszczenie czatu' + 
             '\n l!ban - Banowanie uzytkownika \n' + 
             'l!kick - Wyrzucanie uzytkownika! \n' + 
-            'l!say - Bot wysyla wiadomosc jakiej zapragniesz.')
+            'l!say - Bot wysyla wiadomosc jakiej zapragniesz.' +
+            'l!nuke - Bot robi buum na kanale :) i go restartuje.')
             message.author.send(embed3);
             }, 1250);
         }, 5000);
@@ -71,7 +72,8 @@ module.exports.run = async (bot, message, args) => {
             'l!clear - Czyszczenie czatu' + 
             '\n l!ban - Banowanie uzytkownika \n' + 
             'l!kick - Wyrzucanie uzytkownika! \n' + 
-            'l!say - Bot wysyla wiadomosc jakiej zapragniesz.')
+            'l!say - Bot wysyla wiadomosc jakiej zapragniesz.' +
+            'l!nuke - Bot robi buum na kanale :) i go restartuje.')
             message.channel.send(embed4);
         }
     }
