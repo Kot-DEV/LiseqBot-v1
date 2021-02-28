@@ -23,5 +23,5 @@ const messageCountSchema = require('../../schemas/message-count-schema')
  }
 
  module.exports.help = {
-    name: "nukem"
+    name: "nuke"
  }
