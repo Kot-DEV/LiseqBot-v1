@@ -10,6 +10,7 @@ module.exports.run = (bot, message, args) => {
         .setColor('#84f542')
         .setDescription('Data utworzenia bota: 08.11.2020, Czas GMT+1 20:00 \n Link do dodania bota: [Kliknij we mnie!](https://discord.com/oauth2/authorize?client_id=775065625672286208&permissions=8&scope=bot) \n Bot jest online: ' + duration + '\n Bot ma ' + config.commands + ' komend' + '\n Wersja Bota to ' + config.version)
         message.channel.send(embed);
+       .setFooter('LiseqBot Nic dodać nic ująć')
     }  
 };
 module.exports.help = {
