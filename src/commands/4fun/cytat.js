@@ -7,6 +7,7 @@ module.exports.run = (bot, msg, args) => {
         let embed2 = new discord.MessageEmbed()
         .setTitle('Losowy Cytat.')
         .setColor('#009144')
+        .setFooter('LiseqBot Nic dodać nic ująć')
         if(cytat == 1) {
           embed2.setDescription('To, że milczę, nie znaczy, że nie mam nic do powiedzenia.')
         } else if(cytat == 2) {
