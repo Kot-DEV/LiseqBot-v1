@@ -10,6 +10,7 @@ module.exports.run = (bot, message, args) => {
         .setTitle('Randomowa Liczba!')
         .setColor('#009144')
         .setDescription('Twoja losowa liczba to: `' + liczba + '`')
+        .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed2)
       } 
 };
