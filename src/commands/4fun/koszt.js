@@ -8,6 +8,7 @@ module.exports.run = (bot, message, args) => {
         .setTitle('Koszt')
         .setDescription('Kosztujesz ' + koszt + '**$**')
         .setColor('#6cf542')
+        .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed);
     }
 };
