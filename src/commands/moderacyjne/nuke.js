@@ -7,7 +7,8 @@ const messageCountSchema = require('../../schemas/message-count-schema')
         if (!message.member.hasPermission('ADMINISTRATOR')) {
             const embed = new discord.MessageEmbed()
             .setTitle("Nie posiadasz uprawnien")
-            .setDescription("Nie masz uprawnienia ADMINISTRATOR. ")
+                   .setFooter('LiseqBot Nic dodać nic ująć')
+ .setDescription("Nie masz uprawnienia ADMINISTRATOR. ")
             .setColor('#fc0303')
             message.channel.send(embed)
         } else {
