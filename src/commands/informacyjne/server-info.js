@@ -12,7 +12,8 @@ module.exports.run = (bot, message, args) => {
          'Data Stworzenia: **' + message.guild.createdAt.getUTCDay() + '.' + message.guild.createdAt.getUTCMonth() + '.' + message.guild.createdAt.getFullYear()  + '**' + '\n' +
          'Ilosc ról: **' + message.guild.roles.cache.size + '** \n' + 
          'Ilosc Emotek: **' + message.guild.emojis.cache.size + '**')
-        .setColor('#009144')
+          .setFooter('LiseqBot Nic dodać nic ująć')      
+          .setColor('#009144')
         message.channel.send(embed);
         } else {
             let embed = new discord.MessageEmbed()
@@ -24,6 +25,7 @@ module.exports.run = (bot, message, args) => {
              'Ilosc ról: **' + message.guild.roles.cache.size + '** \n' + 
              'Ilosc Emotek: **' + message.guild.emojis.cache.size + '**')
             .setColor('#009144')
+        .setFooter('LiseqBot Nic dodać nic ująć')
             message.channel.send(embed);
 
         }

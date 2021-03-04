@@ -6,6 +6,7 @@ module.exports.run = (bot, message, args) => {
         .setTitle('Ping!')
         .setDescription('Pong!  :fox:')
         .setColor('#62ff00')
+        .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed);
     }
 };

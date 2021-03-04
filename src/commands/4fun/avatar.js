@@ -8,6 +8,7 @@ module.exports.run = (bot, message, args) => {
         .setTitle('Oto twoj avatar **' + message.author.username + '**!')
         .setColor('#009144')
         .setImage(message.author.displayAvatarURL())
+        .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed);
 
     } else {
@@ -16,6 +17,7 @@ module.exports.run = (bot, message, args) => {
         .setTitle('Oto avatar osoby o nicku **' + u.username + '**!')
         .setColor('#009144')
         .setImage(u.displayAvatarURL())
+        .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed);
     }
 } 

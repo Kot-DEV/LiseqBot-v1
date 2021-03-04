@@ -11,7 +11,8 @@ module.exports.run = (bot, msg, args) => {
                   .setThumbnail(msg.author.avatarURL)
                   .setTitle('Banowanie')
                   .setColor('#eb4934')
-                  .setDescription(':( \n Dlaczego chcesz mnie zbanowac? \n Co Ci zrobilem! ')
+                 .setFooter('LiseqBot Nic dodać nic ująć')        
+ .setDescription(':( \n Dlaczego chcesz mnie zbanowac? \n Co Ci zrobilem! ')
                   msg.channel.send(embed1);
                   return;
                 }
@@ -20,6 +21,7 @@ module.exports.run = (bot, msg, args) => {
               .setThumbnail(member.avatarURL)
               .setTitle('Banowanie')
               .setColor('#f54940')
+        .setFooter('LiseqBot Nic dodać nic ująć')
               .setDescription('Osoba o nicku `' + member.displayName + '` \n zostala zbanowana!') 
               msg.channel.send(embed2);
             } else {
@@ -27,7 +29,8 @@ module.exports.run = (bot, msg, args) => {
               .setThumbnail(msg.author.avatarURL)
               .setTitle('Banowanie')
               .setColor('#eb4934')
-              .setDescription('Nie masz kogo zbanowac!') 
+                   .setFooter('LiseqBot Nic dodać nic ująć')  
+ .setDescription('Nie masz kogo zbanowac!') 
               msg.channel.send(embed);
             }
 
@@ -36,6 +39,7 @@ module.exports.run = (bot, msg, args) => {
                 .setThumbnail(msg.author.avatarURL)
                 .setTitle('Banowanie')
                 .setColor('#eb4934')
+        .setFooter('LiseqBot Nic dodać nic ująć')
                 .setDescription('Nie posiadasz uprawnienia `BAN_MEMBERS` aby uzyc tej komendy!')
                 msg.channel.send(embed1);
               }

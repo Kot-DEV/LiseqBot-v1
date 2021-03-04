@@ -6,6 +6,7 @@ module.exports.run = async(bot, message, args) => {
     let embed = new discord.MessageEmbed()
     .setTitle('Ascii')
     .setDescription('Prawidlowe uzycie: `l!ascii <tekst>`')
+    .setFooter('LiseqBot Nic dodać nic ująć')
     if(!args[0]) return message.channel.send(embed);
     const msg = args.join('');
     figlet.text(msg, function (err, data){

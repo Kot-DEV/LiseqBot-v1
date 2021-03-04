@@ -40,7 +40,9 @@ module.exports.run = async (bot, message, args) => {
             'l!clear - Czyszczenie czatu' + 
             '\n l!ban - Banowanie uzytkownika \n' + 
             'l!kick - Wyrzucanie uzytkownika! \n' + 
-            'l!say - Bot wysyla wiadomosc jakiej zapragniesz.')
+            'l!say - Bot wysyla wiadomosc jakiej zapragniesz.' +
+            'l!nuke - Bot robi buum na kanale :) i go restartuje.')
+      
             message.author.send(embed3);
             }, 1250);
         }, 5000);
@@ -52,7 +54,7 @@ module.exports.run = async (bot, message, args) => {
             'l!pomoc - Wyswietla tą wiadomosc.' +  
             '\n l!bot - Wyswietla informacje o bocie.' +
             '\n l!serverinfo - Informacje o serwerze na którym napisales wiadomosc' + 
-            
+             
             '\n \n **4FUN** \n \n' + 
 
             'l!miś - Randomowy Miś \n' + 
@@ -71,8 +73,10 @@ module.exports.run = async (bot, message, args) => {
             'l!clear - Czyszczenie czatu' + 
             '\n l!ban - Banowanie uzytkownika \n' + 
             'l!kick - Wyrzucanie uzytkownika! \n' + 
-            'l!say - Bot wysyla wiadomosc jakiej zapragniesz.')
-            message.channel.send(embed4);
+            'l!say - Bot wysyla wiadomosc jakiej zapragniesz.' +
+            'l!nuke - Bot robi buum na kanale :) i go restartuje.')
+             .setFooter('LiseqBot Nic dodać nic ująć')
+             message.channel.send(embed4);
         }
     }
 };

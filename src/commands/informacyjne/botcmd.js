@@ -8,8 +8,10 @@ module.exports.run = (bot, message, args) => {
         let embed = new Discord.MessageEmbed()
         .setTitle('Informacje o bocie')
         .setColor('#84f542')
-        .setDescription('Data utworzenia bota: 08.11.2020, Czas GMT+1 20:00 \n Link do dodania bota: [Kliknij we mnie!](https://discord.com/oauth2/authorize?client_id=775065625672286208&permissions=8&scope=bot) \n Bot jest online: ' + duration + '\n Bot ma ' + config.commands + ' komend')
-        message.channel.send(embed);
+        .setDescription('Data utworzenia bota: 08.11.2020, Czas GMT+1 20:00 \n Link do dodania bota: [Kliknij we mnie!](https://discord.com/oauth2/authorize?client_id=775065625672286208&permissions=8&scope=bot) \n Bot jest online: ' + duration + '\n Bot ma ' + config.commands + ' komend' + '\n Wersja Bota to ' + config.version)
+
+       .setFooter('LiseqBot Nic dodać nic ująć')
+       message.channel.send(embed);
     }  
 };
 module.exports.help = {
