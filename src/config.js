@@ -6,10 +6,6 @@ module.exports = {
     // prefix: "bl!", // BETA
     version: "1.0.8", 
     commands: "25",
-
-    //prefix: "bl!", // BETA
-    version: "1.0.7", 
-    commands: "20",
     mongoPath: "mongodb://localhost:27017"
 }
  
