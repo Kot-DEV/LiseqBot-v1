@@ -19,10 +19,10 @@ module.exports.run = (bot, message, args) => {
             let embed = new discord.MessageEmbed()
             .setTitle('Server Info')
             .setDescription(
-            'Nazwa serwera: **' + message.guild.name + '**' + '\n' +
-             'Ilosc osob: **' + message.guild.memberCount + '**' + '\n' +
+            'Nazwa serwera: **' + message.guild.name + '**' + '\n \n' +
+             'Ilosc osob: **' + message.guild.memberCount + '**' + '\n \n' +
              'Data Stworzenia: **' + '01' + '.' + message.guild.createdAt.getUTCMonth() + '.' + message.guild.createdAt.getFullYear()  + '**' + '\n' +
-             'Ilosc ról: **' + message.guild.roles.cache.size + '** \n' + 
+             'Ilosc ról: **' + message.guild.roles.cache.size + '** \n \n' + 
              'Ilosc Emotek: **' + message.guild.emojis.cache.size + '**')
             .setColor('#009144')
         .setFooter('LiseqBot Nic dodać nic ująć')

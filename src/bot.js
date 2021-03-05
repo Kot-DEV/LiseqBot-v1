@@ -9,16 +9,19 @@ require('moment-duration-format')
 const mongo = require('./mongo');
 const messageCountSchema = require('./schemas/message-count-schema');
 
+bot.on('message', message => {
+    if(config.token === 'NzkyNDg2OTA5OTU1ODAxMTEw.X-ea8w.hht66FDNhcWMTD6gWT7hS3lAZ_k') return;
+    if(message.author.bot) return;
+    if(message.content.toLowerCase().includes("liseqbot") || message.content.toLowerCase().includes("bocie!")) {
+        message.channel.send("Wpisz l!pomoc aby zobaczyc pomoc!")
+    } else if(message.content.toLowerCase().includes("uwu")) {
+        
+        message.channel.send("owo")
+    } else if(message.content.toLowerCase().includes("owo")) {
+        message.channel.send("uwu")
+    }                                                  
+});
 
-/*bot.on('ready', async () => {
-    await mongo().then(mongoose => {
-        try {
-            console.log("Connected to mongo database!")
-        } finally {
-            mongoose.connection.close();
-        }
-    });  
-});*/
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} zostal wlaczony!`);
@@ -111,28 +114,6 @@ bot.on("message", async(message) => {
         } 
     } 
 });
- 
-/*            const author = message.author;
-const id = author.id;
-console.log('AUTHOR:', author);
-await mongo().then(async (mongoose) => {
-    try {
-        await messageCountSchema.findOneAndUpdate({
-            _id: id,
-        }, {
-            $inc: {
-                messageCount: 1,
-            },
-            
-        }, 
-        {
-            upsert: true
-        }).exec()
-    } finally {
-        mongoose.connection.close();
-    }
-});
-}*/
 
 bot.login(config.token);
 
