@@ -7,6 +7,7 @@ module.exports.run = async(bot, message, args) => {
         .setDescription('Pong!  :fox:')
         .setColor('#62ff00')
         .setFooter('LiseqBot Nic dodać nic ująć')
+<<<<<<< HEAD
         let toedit = await message.channel.send(embed);
         setTimeout(() => {
             let embed2 = new discord.MessageEmbed()
@@ -16,6 +17,9 @@ module.exports.run = async(bot, message, args) => {
             .setFooter('LiseqBot Nic dodać nic ująć')
             toedit.edit(embed2);
         }, 500)
+=======
+        message.channel.send(embed);
+>>>>>>> 66b3e312c37378ebdc6b5a589c690f78fd18cf8d
     }
 };
 
