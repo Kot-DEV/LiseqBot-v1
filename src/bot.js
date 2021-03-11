@@ -20,6 +20,7 @@ bot.on('message', message => {
 });
 
 
+
 bot.on("ready", async () => {
     console.log(`${bot.user.username} zostal wlaczony!`);
 
