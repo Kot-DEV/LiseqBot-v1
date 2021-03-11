@@ -6,9 +6,6 @@ const bot = new discord.Client();
 var serwy = bot.guilds.cache.size;
 const moment = require('moment');
 require('moment-duration-format')
-const mongo = require('./mongo');
-const messageCountSchema = require('./schemas/message-count-schema');
-
 bot.on('message', message => {
     if(config.token === 'NzkyNDg2OTA5OTU1ODAxMTEw.X-ea8w.hht66FDNhcWMTD6gWT7hS3lAZ_k') return;
     if(message.author.bot) return;
