@@ -3,7 +3,7 @@ const config = require('../../config');
 
 module.exports.run = (bot, message, args) => {
     if(message.content.startsWith(config.prefix + "partnerstwa")) {
-        message.channel.send("Partnerstwo z Kotem oraz jego serwerem developerskim: https://discord.gg/vDXtqwASQd")
+        message.channel.send("[:cat2:] Kot - Twój bot [:cat2:] \n  Co oferuje: \n\n [:cat2:] Wygodę [:cat2:] \n Bezpieczeństwo \n [:cat2:] Zabawę Wejdź na jego serwer developerski: \n https://discord.gg/vDXtqwASQd")
     }
 }
 
