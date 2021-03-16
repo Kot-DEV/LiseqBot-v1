@@ -31,6 +31,7 @@
     "moment-duration-format": "^2.3.2",
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.18",
+    "mysql": "^2.18.1",
     "quickdb": "^1.0.5",
     "ytdl-core": "^4.5.0"
   }

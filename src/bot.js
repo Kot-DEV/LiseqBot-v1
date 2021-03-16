@@ -5,7 +5,9 @@ const config = require('./config.js');
 const bot = new discord.Client();
 var serwy = bot.guilds.cache.size;
 const moment = require('moment');
+const mysql = require('mysql');
 require('moment-duration-format')
+
 bot.on('message', message => {
     if(config.token === 'NzkyNDg2OTA5OTU1ODAxMTEw.X-ea8w.hht66FDNhcWMTD6gWT7hS3lAZ_k') return;
     if(message.author.bot) return;
@@ -25,7 +27,6 @@ bot.on("ready", async () => {
     console.log(`${bot.user.username} zostal wlaczony!`);
 
     setInterval(() => {
-        
         const duration = moment.duration(bot.uptime).format("D [Dni], H [Godzin], m [Minut], s [Sekund]");
         const activities_list = [
             `Ilosc serwerow bota: ${serwy}`,
