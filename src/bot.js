@@ -24,8 +24,7 @@ bot.on("ready", async () => {
 });
 
 bot.commands = new discord.Collection();
-fs.readdir('../src/commands', (err, files) => { 
-
+fs.readdir('./commands', (err, files) => { 
     if (err) console.log(err);
 
     let jsfile = files.filter(f => f.split(".").pop() === "js")
@@ -34,7 +33,7 @@ fs.readdir('../src/commands', (err, files) => {
         return;
     }
     jsfile.forEach((f, i) => {
-        let props = require(`../src/commands/${f}`);
+        let props = require(`./src/commands/${f}`);
         console.log(`${f} zaladowane!`.yellow);
         bot.commands.set(props.help.name, props);
     });
