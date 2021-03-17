@@ -1,26 +1,11 @@
-const discord = require('discord.js');
+const discord = require('discord.js')
 const fs = require('fs');
 const colors = require('colors');
 const config = require('./config.js');
 const bot = new discord.Client();
 var serwy = bot.guilds.cache.size;
 const moment = require('moment');
-const mysql = require('mysql');
 require('moment-duration-format')
-
-bot.on('message', message => {
-    if(config.token === 'NzkyNDg2OTA5OTU1ODAxMTEw.X-ea8w.hht66FDNhcWMTD6gWT7hS3lAZ_k') return;
-    if(message.author.bot) return;
-    if(message.content.toLowerCase().includes("liseqbot") || message.content.toLowerCase().includes("bocie!")) {
-        message.channel.send("Wpisz l!pomoc aby zobaczyc pomoc!")
-    } else if(message.content.toLowerCase().includes("uwu")) {
-        
-        message.channel.send("owo")
-    } else if(message.content.toLowerCase().includes("owo")) {
-        message.channel.send("uwu")
-    }                                                  
-});
-
 
 
 bot.on("ready", async () => {
@@ -36,63 +21,24 @@ bot.on("ready", async () => {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
         bot.user.setActivity(activities_list[index]);
     }, 5000);
-    let channel = bot.guilds.cache.get("775065153459847239").channels.cache.find(ch => ch.name === "powiadomienia");
-    channel.bulkDelete(99);
-    let embed = new discord.MessageEmbed()
-    .setTitle('Stan bota')
-    .setDescription('<:checkes:775412540439920640> Bot zostal uruchomiony! \n Wersja bota to: ' + config.version)
-    .setFooter('LiseqBot Polska')
-    channel.send(embed);//
 });
 
 bot.commands = new discord.Collection();
-fs.readdir('./src/commands/4fun', (err, files) => { 
+fs.readdir('./commands', (err, files) => { 
 
     if (err) console.log(err);
 
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if (jsfile.length <= 0) {
-        console.log("Nie mozna znalezc komend z kategorii 4fun.".red);
+        console.log("Nie mozna znalezc zadnych komend".red);
         return;
     }
     jsfile.forEach((f, i) => {
-        let props = require(`./commands/4fun/${f}`);
+        let props = require(`./commands/${f}`);
         console.log(`${f} zaladowane!`.yellow);
         bot.commands.set(props.help.name, props);
     });
-    console.log('Kategoria 4Fun zostala zaladowana!'.green);
-});
-
-fs.readdir('./src/commands/moderacyjne', (err, files) => {
-
-    if (err) console.log(err);
-
-    let jsfile = files.filter(f => f.split(".").pop() === "js")
-    if (jsfile.length <= 0) {
-        console.log("Nie mozna znalezc komend z kategorii Moderacyjne.".red);
-        return;
-    }
-    jsfile.forEach((f, i) => {
-        let props = require(`./commands/moderacyjne/${f}`);
-        console.log(`${f} zaladowane!`.yellow);
-        bot.commands.set(props.help.name, props);
-    });
-    console.log('Kategoria Moderacyjne zostala zaladowana!'.green);
-});
-
-fs.readdir('./src/commands/informacyjne', (err, files) => {
-        if (err) console.log(err);
-    let jsfile = files.filter(f => f.split(".").pop() === "js")
-    if (jsfile.length <= 0) {
-        console.log("Nie mozna znalezc komend z kategorii Informacyjne.".red);
-        return;
-    }
-    jsfile.forEach((f, i) => {
-        let props = require(`./commands/informacyjne/${f}`);
-        console.log(`${f} zaladowane!`.yellow);
-        bot.commands.set(props.help.name, props);
-    });
-    console.log('Kategoria Informacyjne zostala zaladowana!'.green);
+    console.log('Wszystkie komendy zostaly zaladowane!'.green);
 });
 
 
@@ -112,8 +58,60 @@ bot.on("message", async(message) => {
             message.react('775407239790854214');
         } 
     } 
+
 });
 
-bot.login(config.token);
+
+bot.on('message', message => {
+    if(config.token === 'NzkyNDg2OTA5OTU1ODAxMTEw.X-ea8w.hht66FDNhcWMTD6gWT7hS3lAZ_k') return;
+    if(message.author.bot) return;
+    if(message.content.toLowerCase().includes("liseqbot") || message.content.toLowerCase().includes("bocie!")) {
+        message.channel.send("Wpisz l!pomoc aby zobaczyc pomoc!")
+    } else if(message.content.toLowerCase().includes("uwu")) {
+        
+        message.channel.send("owo")
+    } else if(message.content.toLowerCase().includes("owo")) {
+        message.channel.send("uwu")
+    }                                                  
+});
+
+
+bot.login(config.token); 
+
+bot.on('messageReactionAdd', async(reakcja, user) => {
+   if(reakcja.message.partial) await reakcja.message.fetch();
+   if(reakcja.partial) await reakcja.fetch();
+   if(user.bot) return;
+   if(!reakcja.message.guild) return;
+   if(!reakcja.message.author.bot) return;
+   if(reakcja)
+   if(reakcja.emoji.name === '🎱') {
+        reakcja.message.embeds.some((item) => {
+            if(item.title.includes("Pomoc")) {
+                const e = new discord.MessageEmbed()
+                .setTitle('4fun')
+                .setDescription('l!8ball \n l!ascii \n l!avatar \n l!cytat \n l!koszt \n l!liczba \n l!mchead \n l!lis \n l!miś \n l!obrazek \n l!triggered \n l!kalkuluj \n l!facepalm')
+                 reakcja.message.channel.send(e); 
+        }});
+    } else if(reakcja.emoji.name === '🔨') {
+        reakcja.message.embeds.some((item) => {
+            if(item.title.includes("Pomoc")) {
+                const e = new discord.MessageEmbed()
+                .setTitle('Moderacyjne')
+                .setDescription('l!ban \n l!clear \n l!kick \n l!nuke \n l!say')
+                reakcja.message.channel.send(e);
+            }});
+        } else if(reakcja.emoji.name === 'ℹ️') {
+            reakcja.message.embeds.some((item) => {
+                const e = new discord.MessageEmbed()
+                .setTitle('Informacyjne')
+                .setDescription('l!bot \n l!pomoc \n l!server-info \n l!status')
+                reakcja.message.channel.send(e);
+            });
+        }
+        reakcja.message.reactions.removeAll();
+        reakcja.message.delete();
+});
+
 
  

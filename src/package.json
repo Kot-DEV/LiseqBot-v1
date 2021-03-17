@@ -1,0 +1,32 @@
+{
+  "name": "liseqbot",
+  "version": "1.0.0",
+  "description": "A Discord bot!",
+  "main": "C:/Users/Damian/Desktop/Boty/src/bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node C:/Users/Damian/Desktop/Boty/src/bot.js",
+    "web": "node ./src/web/web.js",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": "12.18.3"
+  },
+  "keywords": [],
+  "author": "PolskiLisek",
+  "license": "ISC",
+  "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.1",
+    "canvacord": "^5.1.0",
+    "colors": "^1.4.0",
+    "discord-math": "^1.0.5",
+    "discord.js": "^12.5.1",
+    "figlet": "^1.5.0",
+    "math.js": "^1.1.46",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
+    "node-json-db": "^1.3.0",
+    "node-pre-gyp": "^0.17.0",
+    "node.js": "0.0.1-security"
+  }
+}
