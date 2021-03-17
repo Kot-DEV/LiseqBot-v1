@@ -2,7 +2,7 @@
   "name": "liseqbot",
   "version": "1.0.0",
   "description": "A Discord bot!",
-  "main": "C:/Users/Damian/Desktop/Boty/src/bot.js",
+  "main": "./src/app/bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node C:/Users/Damian/Desktop/Boty/src/bot.js",

@@ -1,7 +1,7 @@
 const discord = require('discord.js')
 const fs = require('fs');
 const colors = require('colors');
-const config = require('./config.js');
+const config = require('../config.js');
 const bot = new discord.Client();
 var serwy = bot.guilds.cache.size;
 const moment = require('moment');
@@ -24,7 +24,7 @@ bot.on("ready", async () => {
 });
 
 bot.commands = new discord.Collection();
-fs.readdir('./commands', (err, files) => { 
+fs.readdir('./src/app/cmds', (err, files) => { 
     if (err) console.log(err);
 
     let jsfile = files.filter(f => f.split(".").pop() === "js")
@@ -33,7 +33,7 @@ fs.readdir('./commands', (err, files) => {
         return;
     }
     jsfile.forEach((f, i) => {
-        let props = require(`./src/commands/${f}`);
+        let props = require(`./cmds/${f}`);
         console.log(`${f} zaladowane!`.yellow);
         bot.commands.set(props.help.name, props);
     });

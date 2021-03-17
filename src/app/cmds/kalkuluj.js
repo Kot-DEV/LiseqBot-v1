@@ -1,7 +1,7 @@
 const discord = require('discord.js');
-const { prefix } = require('../config');
+const config = require('../../config')
 module.exports.run = (bot, message, args) => {
-    if(!message.content.startsWith(`${prefix}kalkuluj`)) return;
+    if(!message.content.startsWith(`${config.prefix}kalkuluj`)) return;
     let num1 = args[0]
     let operator = args[1]
     let num2 = args[2]

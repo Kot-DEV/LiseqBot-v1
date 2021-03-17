@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const moment = require('moment');
 require('moment-duration-format')
-const config = require('../config')
+const config = require('../../config')
 module.exports.run = (bot, message, args) => {
     if(message.content.startsWith(config.prefix + 'bot')) {
         const duration = moment.duration(bot.uptime).format("D [Dni], H [Godzin], m [Minut], s [Sekund]");

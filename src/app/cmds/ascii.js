@@ -1,6 +1,6 @@
 const discord = require('discord.js');
 const figlet = require('figlet');
-const config = require('../config');
+const config = require('../../config');
 module.exports.run = async(bot, message, args) => {
     if(!message.content.startsWith(config.prefix + "ascii")) return;
     let embed = new discord.MessageEmbed()
