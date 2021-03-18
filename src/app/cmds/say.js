@@ -3,6 +3,7 @@ const config = require('../../config')
 
 module.exports.run = (bot, message, args) => {
     if(message.content.startsWith(config.prefix + "say")) {
+        message.delete();
         if(message.member.hasPermission("ADMINISTRATOR")) {
             const say = args.join(" ")
             message.channel.send(say);

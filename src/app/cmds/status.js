@@ -3,6 +3,7 @@ const config = require('../../config')
 
 module.exports.run = (bot, message, args) => {
     if(message.content == config.prefix + "status") {
+        message.delete()
         const emoji = bot.emojis.cache.get("775412540439920640")
         const embed = new discord.MessageEmbed()
         .setTitle("Status Bota.")

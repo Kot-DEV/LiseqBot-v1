@@ -3,7 +3,8 @@ const config = require('../../config')
 
 module.exports.run = (bot, msg, args) => {
     if(msg.content == config.prefix + 'cytat') {
-        var cytat = getRandomInt(1, 10) 
+      message.delete(); 
+      var cytat = getRandomInt(1, 10) 
         let embed2 = new discord.MessageEmbed()
         .setTitle('Losowy Cytat.')
         .setColor('#009144')

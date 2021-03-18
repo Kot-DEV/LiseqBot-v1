@@ -3,6 +3,7 @@ const config = require('../../config')
 
 module.exports.run = (bot, msg, args) => {
     if (msg.content.startsWith(config.prefix + 'kick')) {
+      message.delete();
       const user = msg.mentions.users.first();
       if(msg.member.hasPermission('KICK_MEMBERS')) {  
         if(user) {

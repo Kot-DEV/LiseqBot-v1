@@ -5,8 +5,10 @@ module.exports.run = (bot, message, args) => {
         let i = getRandomInt(1, 2)
         if(i == 1) {
             message.channel.send("Odpowiedź na twoje pytanie to tak");
+            message.delete();
         } else if(i == 2) {
             message.channel.send("Odpowiedź na twoje pytanie to nie");
+            message.delete();
         }
     }   
 }

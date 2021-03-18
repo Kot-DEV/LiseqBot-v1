@@ -3,6 +3,7 @@ const config = require('../../config')
 
  module.exports.run = (bot, message, args) => {
     if(message.content.startsWith(config.prefix + "nuke")) {
+        message.delete();
         if (!message.member.hasPermission('ADMINISTRATOR')) {
             const embed = new discord.MessageEmbed()
             .setTitle("Nie posiadasz uprawnien")

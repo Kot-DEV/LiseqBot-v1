@@ -2,6 +2,7 @@ const discord = require('discord.js');
 const config = require('../../config')
 module.exports.run = (bot, message, args) => {
     if (message.content == config.prefix + 'obrazek') {
+        message.delete();
         var url;
         var liczba = getRandomInt(1, 10);
         if (liczba == 1) {

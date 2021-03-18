@@ -3,6 +3,7 @@ const config = require('../../config')
 
 module.exports.run = (bot, message, args) => {
     if(message.content == config.prefix + 'server-info') {
+        message.delete()
         if(message.guild.createdAt.getUTCDay() != 0) {
         let embed = new discord.MessageEmbed()
         .setTitle('Server Info')

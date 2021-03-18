@@ -4,7 +4,8 @@ const config = require('../../config')
 module.exports.run = (bot, message, args) => {
 
   if(message.content == config.prefix + 'liczba') {
-        var url;
+    message.delete();   
+    var url;
         var liczba = getRandomInt(1, 100);
         let embed2 = new discord.MessageEmbed()
         .setTitle('Randomowa Liczba!')

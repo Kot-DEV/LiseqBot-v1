@@ -3,6 +3,7 @@ const figlet = require('figlet');
 const config = require('../../config');
 module.exports.run = async(bot, message, args) => {
     if(!message.content.startsWith(config.prefix + "ascii")) return;
+    message.delete();
     let embed = new discord.MessageEmbed()
     .setTitle('Ascii')
     .setDescription('Prawidlowe uzycie: `l!ascii <tekst>`')
