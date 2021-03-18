@@ -3,7 +3,7 @@ module.exports = {
     token: 'Nzc1MDY1NjI1NjcyMjg2MjA4.X6g6HQ.x4hDYf949LwCa4apr0bD6SfjRj0', // FULL
     prefix: "l!", // FULL
     //prefix: "bl!", // BETA
-    version: "1.2.0", 
-    commands: "24"
+    version: "1.1.9", 
+    commands: "22"
 }
  
