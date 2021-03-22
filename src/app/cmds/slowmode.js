@@ -1,5 +1,4 @@
 const discord = require('discord.js')
-const config = require('../../config');
 module.exports.run = (bot, message, args) => {
     const prefix = bot.ustawienia.get(message.guild.id).prefix;
     if(!message.content.startsWith(prefix + 'slowmode')) return;

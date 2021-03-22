@@ -1,6 +1,5 @@
 const discord = require('discord.js');
 const figlet = require('figlet');
-const config = require('../../config');
 module.exports.run = async(bot, message, args) => {
     const prefix = bot.ustawienia.get(message.guild.id).prefix;
     if(!message.content.startsWith(prefix + "ascii")) return;

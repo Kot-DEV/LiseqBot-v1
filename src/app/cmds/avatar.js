@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const config = require('../../config')
 module.exports.run = (bot, message, args) => {
     const prefix = bot.ustawienia.get(message.guild.id).prefix;
     if(message.content.startsWith(prefix + 'avatar')) {
