@@ -29,7 +29,7 @@ module.exports.run = (bot, message, args) => {
         } else if(args[0].toLowerCase() == 'welcome_channel_id') {
             let [prop, ...value] = args;
             prop = "welcome_channel_id";
-            value = args[0]
+            value = args[1]
             bot.ustawienia.set(message.guild.id, value, prop);
             const e = new discord.MessageEmbed()
             .setTitle('welcome_channel_id')
