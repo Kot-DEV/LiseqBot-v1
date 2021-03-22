@@ -39,7 +39,7 @@ module.exports.run = (bot, message, args) => {
         } else {
             const e = new discord.MessageEmbed()
             .setTitle('Config')
-            .setDescription('Taka opcja nie istnieje! \n \n Możliwe opcje: `prefix`, `welcome_message_id`, `welcome_channel`')
+            .setDescription('Taka opcja nie istnieje! \n \n Możliwe opcje: `prefix`, `welcome_channel_id`, `welcome_message`')
             message.channel.send(e);
         }
     } else {
