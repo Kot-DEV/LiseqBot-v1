@@ -140,4 +140,8 @@ bot.on('messageReactionAdd', async(reakcja, user) => {
 });
 
 
- 
+ bot.on('message', message => {
+    if(message.content.includes("<@775065625672286208>"))  {
+        const e = new discord.messagee
+    }
+ });
