@@ -15,13 +15,26 @@ bot.ustawienia = new Enmap({
     autoFetch: true,
     cloneLevel: 'deep',
     autoEnsure: {
-      prefix: "l!"
+      prefix: "l!",
+      welcome_channel_id: "brak",
+      welcome_message: "brak"
     }
   });
+
+bot.on('guildMemberAdd', m => {
+    if(bot.ustawienia.get(m.guild.id, welcome_channel_id) == 'brak') return;
+       let welcomechannel = bot.channels.cache.find(ch => ch.id === parseInt(bot.ustawienia.get(m.guild.id).welcome_channel));
+       let welcomemessage = bot.ustawienia.get(m.guild.id, welcome_message);
+       welcomeMessage = welcomeMessage.replace("{osoba}", m.user.tag);
+       welcomeMessage = welcomeMessage.replace("{nazwa_serwera}", m.guild.name);
+       var memberCount = m.guild.members.filter(memb => !memb.user.bot).size; 
+       welcomeMessage = welcomeMessage.replace("{osoby_na_serwie}", memberCount); 
+    });
 
 bot.on('guildDelete', guild => {
     client.ustawienia.delete(guild.id);
 });
+
 
 
 
@@ -138,10 +151,3 @@ bot.on('messageReactionAdd', async(reakcja, user) => {
         reakcja.message.reactions.removeAll();
         reakcja.message.delete();
 });
-
-
- bot.on('message', message => {
-    if(message.content.includes("<@775065625672286208>"))  {
-        const e = new discord.messagee
-    }
- });

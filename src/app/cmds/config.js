@@ -16,10 +16,30 @@ module.exports.run = (bot, message, args) => {
             .setDescription(`Prefix zostal ustawiony na ${args[1]}`)
             .setColor('#ff3700')
             message.channel.send(e);
+        } else if(args[0].toLowerCase() == 'welcome_message') {
+            let [prop, ...value] = args;
+            prop = "welcome_message";
+            value = args.slice(0).join(' ');
+            bot.ustawienia.set(message.guild.id, value, prop);
+            const e = new discord.MessageEmbed()
+            .setTitle('Welcome_Message.')
+            .setDescription(`Opcja Welcome_Message zostala ustawiona na ${value}`)
+            .setColor('#ff3700')
+            message.channel.send(e);
+        } else if(args[0].toLowerCase() == 'welcome_channel_id') {
+            let [prop, ...value] = args;
+            prop = "welcome_channel_id";
+            value = args[0]
+            bot.ustawienia.set(message.guild.id, value, prop);
+            const e = new discord.MessageEmbed()
+            .setTitle('welcome_channel_id')
+            .setDescription(`Opcja welcome_channel_id zostala ustawiona na ${value}`)
+            .setColor('#ff3700')
+            message.channel.send(e);
         } else {
             const e = new discord.MessageEmbed()
             .setTitle('Config')
-            .setDescription('Taka opcja nie istnieje! \n \n Możliwe opcje: `prefix`')
+            .setDescription('Taka opcja nie istnieje! \n \n Możliwe opcje: `prefix`, `welcome_message_id`, `welcome_channel`')
             message.channel.send(e);
         }
     } else {
