@@ -1,8 +1,8 @@
 const discord = require('discord.js');
 const config = require('../../config')
 module.exports.run = (bot, message, args) => {
-    if(message.content.startsWith(config.prefix + "clear")) {
-        message.delete();
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if(message.content.startsWith(prefix + "clear")) {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) {
             const embed = new discord.MessageEmbed()
             .setTitle('Brak uprawnien')

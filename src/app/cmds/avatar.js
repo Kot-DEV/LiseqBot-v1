@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const config = require('../../config')
 module.exports.run = (bot, message, args) => {
-    if(message.content.startsWith(config.prefix + 'avatar')) {
-        message.delete();
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if(message.content.startsWith(prefix + 'avatar')) {
         if(!message.mentions.users.size) {
         let embed = new Discord.MessageEmbed()
         .setTitle('Oto twoj avatar **' + message.author.username + '**!')

@@ -1,7 +1,8 @@
 const discord = require('discord.js');
 const config = require('../../config')
 module.exports.run = async(bot, message, args) => {
-    if(message.content == config.prefix + 'ping') {
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if(message.content == prefix + 'ping') {
         const embed = new discord.MessageEmbed()
         .setTitle('Ping!')
         .setDescription('Pong!  :fox:')

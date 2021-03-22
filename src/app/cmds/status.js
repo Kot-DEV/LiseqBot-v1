@@ -2,8 +2,8 @@ const discord = require('discord.js');
 const config = require('../../config')
 
 module.exports.run = (bot, message, args) => {
-    if(message.content == config.prefix + "status") {
-        message.delete()
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if(message.content == prefix + "status") {
         const emoji = bot.emojis.cache.get("775412540439920640")
         const embed = new discord.MessageEmbed()
         .setTitle("Status Bota.")

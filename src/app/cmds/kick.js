@@ -2,8 +2,8 @@ const discord = require('discord.js');
 const config = require('../../config')
 
 module.exports.run = (bot, msg, args) => {
-    if (msg.content.startsWith(config.prefix + 'kick')) {
-      message.delete();
+  const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if (msg.content.startsWith(prefix + 'kick')) {
       const user = msg.mentions.users.first();
       if(msg.member.hasPermission('KICK_MEMBERS')) {  
         if(user) {

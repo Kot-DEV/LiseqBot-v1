@@ -1,14 +1,13 @@
 const discord = require('discord.js');
-const config = require('../../config');
+
 module.exports.run = (bot, message, args) => {
-    if(message.content.startsWith(config.prefix + "8ball")) {
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if(message.content.startsWith(prefix + "8ball")) {
         let i = getRandomInt(1, 2)
         if(i == 1) {
             message.channel.send("Odpowiedź na twoje pytanie to tak");
-            message.delete();
         } else if(i == 2) {
             message.channel.send("Odpowiedź na twoje pytanie to nie");
-            message.delete();
         }
     }   
 }

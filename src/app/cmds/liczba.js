@@ -2,9 +2,8 @@ const discord = require('discord.js');
 const config = require('../../config')
 
 module.exports.run = (bot, message, args) => {
-
-  if(message.content == config.prefix + 'liczba') {
-    message.delete();   
+  const prefix = bot.ustawienia.get(message.guild.id).prefix;
+  if(message.content.startsWith(prefix + 'liczba')) { 
     var url;
         var liczba = getRandomInt(1, 100);
         let embed2 = new discord.MessageEmbed()

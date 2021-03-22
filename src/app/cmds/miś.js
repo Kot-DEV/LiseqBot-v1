@@ -1,8 +1,8 @@
 const discord = require('discord.js');
 const config = require('../../config')
 module.exports.run = (bot, message, args) => {
-    if (message.content == config.prefix + 'miś') {
-        message.delete();
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if (message.content == prefix + 'miś') {
         var url;
         var liczba = getRandomInt(1, 10);
         if (liczba == 1) {
@@ -32,7 +32,7 @@ module.exports.run = (bot, message, args) => {
             .setImage(url)
         .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed2)
-    } else if (message.content == config.prefix + 'mis -dm') {
+    } else if (message.content == prefix + 'mis -dm') {
         var url;
         var liczba = getRandomInt(1, 10);
         if (liczba == 1) {

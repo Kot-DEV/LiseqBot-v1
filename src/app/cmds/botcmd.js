@@ -3,8 +3,8 @@ const moment = require('moment');
 require('moment-duration-format')
 const config = require('../../config')
 module.exports.run = (bot, message, args) => {
-    if(message.content.startsWith(config.prefix + 'bot')) {
-        message.delete();
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if(message.content.startsWith(prefix + 'bot')) {
         const duration = moment.duration(bot.uptime).format("D [Dni], H [Godzin], m [Minut], s [Sekund]");
         let embed = new Discord.MessageEmbed()
         .setTitle('Informacje o bocie')

@@ -2,8 +2,8 @@ const discord = require('discord.js');
 const config = require('../../config');
 
 module.exports.run = (bot, message, args) => {
-    if(message.content.startsWith(config.prefix + 'koszt')) {
-        message.delete();
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if(message.content.startsWith(prefix + 'koszt')) {
         const koszt = getRandomInt(0, 1000)
         const embed = new discord.MessageEmbed() 
         .setTitle('Koszt')

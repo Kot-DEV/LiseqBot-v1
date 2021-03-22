@@ -1,8 +1,8 @@
 const discord = require('discord.js');
 const config = require('../../config')
 module.exports.run = (bot, msg, args) => {
-    if (msg.content.startsWith(config.prefix + 'ban')) {
-      message.delete();
+  const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if (msg.content.startsWith(prefix + 'ban')) {
       const user = msg.mentions.users.first();  
       if(msg.member.hasPermission('BAN_MEMBERS')) {
         if(user) {

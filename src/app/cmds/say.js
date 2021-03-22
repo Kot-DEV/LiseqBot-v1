@@ -2,8 +2,8 @@ const discord = require('discord.js');
 const config = require('../../config')
 
 module.exports.run = (bot, message, args) => {
-    if(message.content.startsWith(config.prefix + "say")) {
-        message.delete();
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if(message.content.startsWith(prefix + "say")) {
         if(message.member.hasPermission("ADMINISTRATOR")) {
             const say = args.join(" ")
             message.channel.send(say);

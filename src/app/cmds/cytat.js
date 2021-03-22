@@ -2,8 +2,8 @@ const discord = require('discord.js');
 const config = require('../../config')
 
 module.exports.run = (bot, msg, args) => {
-    if(msg.content == config.prefix + 'cytat') {
-      message.delete(); 
+  const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if(msg.content == prefix + 'cytat') {
       var cytat = getRandomInt(1, 10) 
         let embed2 = new discord.MessageEmbed()
         .setTitle('Losowy Cytat.')

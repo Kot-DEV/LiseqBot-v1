@@ -1,8 +1,8 @@
 const discord = require('discord.js');
 const config = require('../../config')
 module.exports.run = (bot, message, args) => {
-    if (message.content == config.prefix + 'obrazek') {
-        message.delete();
+    const prefix = bot.ustawienia.get(message.guild.id).prefix;
+    if (message.content == prefix + 'obrazek') {
         var url;
         var liczba = getRandomInt(1, 10);
         if (liczba == 1) {
