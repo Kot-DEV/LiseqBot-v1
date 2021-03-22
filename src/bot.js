@@ -2,7 +2,7 @@
 const discord = require('discord.js')
 const fs = require('fs');
 const colors = require('colors');
-const config = require('../config.js');
+const config = require('./config.js');
 const bot = new discord.Client();
 var serwy = bot.guilds.cache.size;
 const moment = require('moment');
@@ -34,9 +34,6 @@ bot.on('guildMemberAdd', m => {
 bot.on('guildDelete', guild => {
     client.ustawienia.delete(guild.id);
 });
-
-
-
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} zostal wlaczony!`);

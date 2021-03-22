@@ -19,7 +19,7 @@ module.exports.run = (bot, message, args) => {
         } else if(args[0].toLowerCase() == 'welcome_message') {
             let [prop, ...value] = args;
             prop = "welcome_message";
-            value = args.slice(0).join(' ');
+            value = args.slice(1).join(' ');
             bot.ustawienia.set(message.guild.id, value, prop);
             const e = new discord.MessageEmbed()
             .setTitle('Welcome_Message.')
