@@ -16,20 +16,8 @@ bot.ustawienia = new Enmap({
     cloneLevel: 'deep',
     autoEnsure: {
       prefix: "l!",
-      welcome_channel_id: "brak",
-      welcome_message: "brak"
     }
   });
-
-bot.on('guildMemberAdd', m => {
-    if(bot.ustawienia.get(m.guild.id, welcome_channel_id) == 'brak') return;
-       let welcomechannel = bot.channels.cache.find(ch => ch.id === parseInt(bot.ustawienia.get(m.guild.id).welcome_channel));
-       let welcomemessage = bot.ustawienia.get(m.guild.id, welcome_message);
-       welcomeMessage = welcomeMessage.replace("{osoba}", m.user.tag);
-       welcomeMessage = welcomeMessage.replace("{nazwa_serwera}", m.guild.name);
-       var memberCount = m.guild.members.filter(memb => !memb.user.bot).size; 
-       welcomeMessage = welcomeMessage.replace("{osoby_na_serwie}", memberCount); 
-    });
 
 bot.on('guildDelete', guild => {
     client.ustawienia.delete(guild.id);
