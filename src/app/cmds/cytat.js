@@ -2,7 +2,7 @@ const discord = require('discord.js');
 
 module.exports.run = (bot, message, args) => {
   const prefix = bot.ustawienia.get(message.guild.id).prefix;
-    if(msg.content == prefix + 'cytat') {
+    if(message.content == prefix + 'cytat') {
       var cytat = getRandomInt(1, 10) 
         let embed2 = new discord.MessageEmbed()
         .setTitle('Losowy Cytat.')
