@@ -16,16 +16,57 @@ bot.ustawienia = new Enmap({
     cloneLevel: 'deep',
     autoEnsure: {
       prefix: "l!",
+      meme_channel: 'false',
+      meme_channel_id: "brak"
     }
   });
 
 bot.on('guildDelete', guild => {
     client.ustawienia.delete(guild.id);
 });
+// Meme beta function
+bot.on('message', async(message) => {
+    if(message.author.bot) return;
+    if(bot.ustawienia.get(message.guild.id).meme_channel != 'true' || message.channel.id != bot.ustawienia.get(message.guild.id).meme_channel_id) return;
+    message.delete();
+    if (message.attachments.size > 0) {
+        if (message.attachments.every(attachIsPng)){
+            const e = new discord.MessageEmbed()
+            .setTitle(`Mem od użytkownika ${message.author.username}`)
+            .setImage(`${message.attachments.first().proxyURL}`)
+            .setFooter('Funkcja Mem jest w wersji beta!')
+            const botmsg = await message.channel.send(e);
+            botmsg.react('👍')
+            botmsg.react('👎')
+
+        } else {
+            if(message.attachments.every(attachIsJpg)) {
+                const e = new discord.MessageEmbed()
+                .setTitle(`Mem od użytkownika ${message.author.username}`)
+                .setImage(`${message.attachments.first().proxyURL}`)
+                .setFooter('Funkcja Mem jest w wersji beta!')
+                const botmsg = await message.channel.send(e);
+                botmsg.react('👍')
+                botmsg.react('👎')
+            } else {
+                if(message.attachments.every(attachIsGif)) {
+                    const e = new discord.MessageEmbed()
+                    .setTitle(`Mem od użytkownika ${message.author.username}`)
+                    .setImage(`${message.attachments.first().proxyURL}`)
+                    .setFooter('Funkcja Mem jest w wersji beta!')
+                    const botmsg = await message.channel.send(e);
+                    botmsg.react('👍')
+                    botmsg.react('👎')
+                }
+            }
+        }
+    }
+});
+
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} zostal wlaczony!`);
-
+    
     setInterval(() => {
         const duration = moment.duration(bot.uptime).format("D [Dni], H [Godzin], m [Minut], s [Sekund]");
         const activities_list = [
@@ -44,7 +85,7 @@ fs.readdir('./src/app/cmds', (err, files) => {
 
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if (jsfile.length <= 0) {
-        console.log("Nie mozna znalezc zadnych komend".red);
+        consxole.log("Nie mozna znalezc zadnych komend".red);
         return;
     }
     jsfile.forEach((f, i) => {
@@ -102,7 +143,8 @@ bot.on('message', message => {
 bot.login(config.token); 
 
 bot.on('messageReactionAdd', async(reakcja, user) => {
-    const prefix = bot.ustawienia.get(reakcja.message.guild.id).prefix;
+   if(reakcja.message.channel.id == bot.ustawienia.get(reakcja.message.guild.id).meme_channel_id) return;
+   const prefix = bot.ustawienia.get(reakcja.message.guild.id).prefix;
    if(reakcja.message.partial) await reakcja.message.fetch();
    if(reakcja.partial) await reakcja.fetch();
    if(user.bot) return;
@@ -136,3 +178,21 @@ bot.on('messageReactionAdd', async(reakcja, user) => {
         reakcja.message.reactions.removeAll();
         reakcja.message.delete();
 });
+
+function attachIsPng(msgAttach) {
+    var url = msgAttach.url;
+    //True if this url is a png image.
+    return url.indexOf("png", url.length - "png".length /*or 3*/) !== -1;
+}
+
+function attachIsJpg(msgAttach) {
+    var url = msgAttach.url;
+    //True if this url is a jpg image.
+    return url.indexOf("jpg", url.length - "jpg".length /*or 3*/) !== -1;
+}
+
+function attachIsGif(msgAttach) {
+    var url = msgAttach.url;
+    //True if this url is a Gif image.
+    return url.indexOf("gif", url.length - "gif".length /*or 3*/) !== -1;
+}

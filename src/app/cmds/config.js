@@ -16,16 +16,50 @@ module.exports.run = (bot, message, args) => {
             .setDescription(`Prefix zostal ustawiony na ${args[1]}`)
             .setColor('#ff3700')
             message.channel.send(e);
+        } else if(args[0].toLowerCase() == 'meme_channel') {
+            if(args[1] == "true" || args[1] == "false") {
+            let [prop, ...value]  = args;
+            prop = "meme_channel";
+            value = args[1];
+            bot.ustawienia.set(message.guild.id, value, prop);
+            const e = new discord.MessageEmbed()
+            .setTitle('Ustawianie meme_channel')
+            .setDescription('Meme_channel zostalo ustawiona na ' + args[1] + '.')
+            message.channel.send(e);
+            } else  {
+                const e = new discord.MessageEmbed()
+                .setTitle('Ustawianie meme_channel')
+                .setDescription('Wartosc może być ustawiona tylko na true lub false.')
+                .setColor('#ff3700')
+                message.channel.send(e);
+            }
+        }else if(args[0].toLowerCase() == 'meme_channel_id') { 
+            if(parseInt(args[1]) != NaN) {
+                let [prop, ...value]  = args;
+                prop = "meme_channel_id";
+                value = args[1];
+                bot.ustawienia.set(message.guild.id, value, prop);
+                const e = new discord.MessageEmbed()
+                .setTitle('Ustawianie meme_channel')
+                .setDescription('Meme_channel zostalo ustawiona na ' + args[1] + '.')
+                message.channel.send(e);
+            } else {
+                const e = new discord.MessageEmbed()
+                .setTitle('Ustawianie meme_channel')
+                .setDescription('Wartosc może być tylko liczbą.')
+                .setColor('#ff3700')
+                message.channel.send(e);
+            }
         } else {
             const e = new discord.MessageEmbed()
             .setTitle('Config')
-            .setDescription('Taka opcja nie istnieje! \n \n Możliwe opcje: `prefix`, `welcome_channel_id`, `welcome_message`')
+            .setDescription('Taka opcja nie istnieje! \n \n Możliwe opcje: `prefix`, `welcome_channel_id`, `welcome_message`, `meme_channel`, `meme_channel_id`')
             message.channel.send(e);
         }
     } else {
         const e = new discord.MessageEmbed()
         .setTitle('Config')
-        .setDescription(`Prawidlowe uzycie: ${prefix}config <opcja> <wartość>`)
+        .setDescription('Prawidlowe uzycie: ' + prefix + ' config <opcja> <wartość> \n Możliwe opcje: `prefix`, `welcome_channel_id`, `welcome_message`, `meme_channel`, `meme_channel_id`')
         message.channel.send(e);
         }
     } else {
