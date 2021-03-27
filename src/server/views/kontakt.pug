@@ -1,0 +1,75 @@
+head
+  meta(charset='UTF-8' lang='pl')
+  script(data-ad-client='ca-pub-9318987707335935' async='' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+  style.
+    h2{
+    color: whitesmoke;
+    text-align: center;
+    }
+    body {
+    font-size: 28px;
+    font-family: "Mulish",sans-serif;
+    background: linear-gradient(to right, rgb(27, 29, 25) , #202020);
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+    ul {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    }
+    li {
+    float: left;
+    }
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+    .active {
+    background-color: #4CAF50;
+    }
+    .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    }
+    .button {
+    margin: 30px 10px;
+    min-width: 25%;
+    height: 25%;
+    background-color: #222629;
+    color: rgb(154, 154, 255);
+    border: 2px solid darksalmon;
+    border-color: greenyellow;
+    border-radius: 3px;
+    font-size: 70%;
+    }
+ul
+  li
+    a(href='index.html') Strona G&lstrok;&oacute;wna
+  li
+    a(href='aktualizacje.html') Aktualizacje
+  li
+    a.active(href='kontakt.html') Kontakt
+  li
+    a(href='#about') Panel
+.tekst
+h2 Kontakt
+.center
+  button.button(onclick='myFunction()')
+    b Dodaj bota
+script.
+  window.$czater = {tok: "17dde1562bec9c294800d462a88a6111e3e309e6", domain: "https://www.czater.pl/", login: undefined, email: undefined};
+script(src='https://www.czater.pl/assets/modules/chat/js/chat.js' async='')

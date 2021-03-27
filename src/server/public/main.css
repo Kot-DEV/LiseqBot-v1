@@ -1,0 +1,84 @@
+.linkdiscord{
+	color: red;
+	text-decoration: none;
+}
+
+.linkdiscord:hover{
+	color: green;
+}
+
+.linkdiscord:visited{
+	color: yellow;
+}
+
+.linkdiscord:active{
+	color: brown;
+}
+
+h2,h1,h3{
+    color: whitesmoke;
+    text-align: center;
+}
+
+p {
+  color: whitesmoke;
+  text-align: center;
+}
+
+body {
+    font-size: 28px;
+    font-family: "Mulish",sans-serif;
+    background: linear-gradient(to right, rgb(27, 29, 25) , #202020);
+    }
+
+ul { 
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.button {
+    margin: 30px 10px;
+    min-width: 25%;
+    height: 25%;    
+    background-color: #222629;
+    color: rgb(154, 154, 255);
+    border: 2px solid darksalmon;
+    border-color: greenyellow;
+    border-radius: 3px;
+    font-size: 70%;
+}
