@@ -1,6 +1,6 @@
 const discord = require('discord.js');
 
-module.exports.run = (bot, msg, args) => {
+module.exports.run = (bot, message, args) => {
   const prefix = bot.ustawienia.get(message.guild.id).prefix;
     if(msg.content == prefix + 'cytat') {
       var cytat = getRandomInt(1, 10) 
