@@ -31,7 +31,7 @@ module.exports.run = (bot, message, args) => {
         } else if(cytat == 11) {
           embed2.setDescription('Pozbierać jest się dziesięć razy trudniej, niż rozsypać.');
         }
-        msg.channel.send(embed2);
+        message.channel.send(embed2);
       }
 };
 
