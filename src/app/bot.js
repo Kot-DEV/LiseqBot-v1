@@ -139,6 +139,7 @@ bot.on("ready", async () => {
         const activities_list = [
             `Ilosc serwerow bota: ${serwy}`,
             "Napisz l!pomoc aby dostac pomoc",
+            `Moja wersja to ${config.version}`,
             `Jestem online: ${duration}`
         ]        
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
