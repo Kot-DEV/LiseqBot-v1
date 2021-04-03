@@ -13,4 +13,4 @@ router.get('/aktualizacje.html', (req, res) => {
 router.get('/kontakt.html', (req, res) => {
     res.render('kontakt');
 });
-module.exports = router;
+module.exports = router; 9
