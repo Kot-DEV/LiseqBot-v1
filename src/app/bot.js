@@ -25,7 +25,7 @@ bot.ustawienia = new Enmap({
   });
 
 bot.on('guildCreate', guild => {
-  const channel = bot.guilds.cache.find(serwer => serwer.id === 775065153459847239).channels.cache.find(kanal => kanal.id === 827551141838716968);
+  const channel = bot.channels.cache.find(kanal => kanal.id === 827551141838716968);
   const embed = new discord.MessageEmbed()
   .setTitle('Nowy serwer!')
   .setDescription(`**Dodano mnie do nowego serwera!** \n \n **Nazwa serwera ${guild.name} \n **ID serwera:** ${guild.id} \n **Wlasciciel serwera:** ${guild.owner.user.username}${guild.owner.user.tag}`)
