@@ -16,7 +16,7 @@ bot.ustawienia = new Enmap({
     autoFetch: true,
     cloneLevel: 'deep',
     autoEnsure: {
-      prefix: "bl!",
+      prefix: "l!",
       meme_channel: "false",
       meme_channel_id: "brak",
       logs_channel: "false",
