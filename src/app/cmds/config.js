@@ -87,13 +87,13 @@ module.exports.run = (bot, message, args) => {
         } else {
             const e = new discord.MessageEmbed()
             .setTitle('Config')
-            .setDescription('Taka opcja nie istnieje! \n \n Możliwe opcje: `prefix`, `welcome_channel_id`, `welcome_message`, `meme_channel`, `meme_channel_id`, `logs_channel`, `logs_channel_id`')
+            .setDescription('Taka opcja nie istnieje! \n \n Możliwe opcje: `prefix`, `meme_channel`, `meme_channel_id`, `logs_channel`, `logs_channel_id`')
             message.channel.send(e);
         }
     } else {
         const e = new discord.MessageEmbed()
         .setTitle('Config')
-        .setDescription('Prawidlowe uzycie: ' + prefix + ' config <opcja> <wartość> \n Możliwe opcje: `prefix`, `welcome_channel_id`, `welcome_message`, `meme_channel`, `meme_channel_id`, `logs_channel`, `logs_channel_id`')
+        .setDescription('Prawidlowe uzycie: ' + prefix + ' config <opcja> <wartość> \n Możliwe opcje: `prefix`, `meme_channel`, `meme_channel_id`, `logs_channel`, `logs_channel_id`')
         message.channel.send(e);
         }
     } else {

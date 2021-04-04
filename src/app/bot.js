@@ -24,6 +24,7 @@ bot.ustawienia = new Enmap({
     }
   });
 
+
 bot.on('guildCreate', guild => {
   const channel = bot.channels.cache.find(kanal => kanal.id === 827551141838716968);
   const embed = new discord.MessageEmbed()
