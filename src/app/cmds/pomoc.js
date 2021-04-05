@@ -6,6 +6,7 @@ module.exports.run = async(bot, message, args) => {
                 const e = new discord.MessageEmbed()
                     .setTitle('Pomoc')
                     .setDescription('**Na początku wybierz kategorię.** \n \n  **Informacyjne:**  \n :information_source: \n\n  **Moderacyjne:** \n :hammer: \n\n **4Fun:** \n :8ball:')
+                    .setColor('#5eff00')
                 const msg = await message.channel.send(e);
                 msg.react("🎱");
                 msg.react("ℹ️");

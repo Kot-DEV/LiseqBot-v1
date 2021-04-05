@@ -10,7 +10,6 @@ module.exports.run = (bot, message, args) => {
             .setTitle('Nie masz uprawnien!')
             .setDescription('Aby uzywac tej komendy potrzebujesz uprawnienia ADMINISTRATOR!')
             .setColor('#eb4934')
-            .setFooter('LiseqBot nic dodać nic ująć')
             message.channel.send(embed);
         }
     }

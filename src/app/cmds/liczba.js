@@ -7,9 +7,8 @@ module.exports.run = (bot, message, args) => {
         var liczba = getRandomInt(1, 100);
         let embed2 = new discord.MessageEmbed()
         .setTitle('Randomowa Liczba!')
-        .setColor('#009144')
+        .setColor('#5eff00')
         .setDescription('Twoja losowa liczba to: `' + liczba + '`')
-        .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed2)
       } 
 };

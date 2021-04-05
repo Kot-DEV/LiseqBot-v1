@@ -8,7 +8,6 @@ module.exports.run = (bot, message, args) => {
         .setTitle("Status Bota.")
         .setDescription(`Wszystkie systemy = ${emoji} \n \n Serwer1 = ${emoji} \n Serwer2 = ${emoji} \n Serwer3 = ${emoji} `)
         .setColor('#009144')
-        .setFooter("LiseqBot Nic dodać Nic ująć.")
         message.channel.send(embed)
     }
 }

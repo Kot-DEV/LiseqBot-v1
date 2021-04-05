@@ -3,12 +3,22 @@ const discord = require('discord.js');
 module.exports.run = (bot, message, args) => {
     const prefix = bot.ustawienia.get(message.guild.id).prefix;
     if(message.content.startsWith(prefix + "8ball")) {
-        let i = getRandomInt(1, 2)
+        let i = getRandomInt(1, 4)
+        const pytanie = message.content.replace(bot.ustawienia.get(message.guild.id).prefix, "")
+        const pytanie1 = pytanie.replace("8ball", "")
+        const e = new discord.MessageEmbed()
+        .setTitle(`8ball | ${pytanie1}`)
         if(i == 1) {
-            message.channel.send("Odpowiedź na twoje pytanie to tak");
+        e.setDescription(`Tak.`)
         } else if(i == 2) {
-            message.channel.send("Odpowiedź na twoje pytanie to nie");
+            e.setDescription(`Nie.`)
+        } else if(i == 3) {
+            e.setDescription(`Chyba tak.`)
+        } else if(i == 4) {
+            e.setDescription(`Chyba nie.`)
         }
+        e.setColor('#5eff00')
+        message.channel.send(e);
     }   
 }
 

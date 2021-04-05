@@ -7,7 +7,6 @@ module.exports.run = (bot, message, args) => {
         .setTitle('Slowmode!')
         .setDescription(`Slow mode zostal ustawiony na ${args[0]} sekund`)
         .setColor('#62ff00')
-        .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed2);
 };
 

@@ -11,7 +11,6 @@ module.exports.run = (bot, msg, args) => {
               let embed1 = new discord.MessageEmbed()
               .setThumbnail(msg.author.avatarURL)
               .setTitle('Banowanie')
-        .setFooter('LiseqBot Nic dodać nic ująć')
               .setColor('#eb4934')
               .setDescription(':( \n Dlaczego chcesz mnie wyrzucic? \n Co Ci zrobilem! ')
               msg.channel.send(embed1);
@@ -21,15 +20,13 @@ module.exports.run = (bot, msg, args) => {
               let embed2 = new discord.MessageEmbed()
               .setThumbnail(member.avatarURL)
               .setTitle('Wyrzucanie <:crosses:775407239790854214>')
-                      .setFooter('LiseqBot Nic dodać nic ująć')
-.setColor('#f54940')
+              .setColor('#5eff00')
               .setDescription('Osoba o nicku `' + member.displayName + '` \n zostala wyrzucona z tego serwera!' + ' <:crosses:775407239790854214> ') 
               msg.channel.send(embed2);   
             } else {
               let embed = new discord.MessageEmbed()
               .setThumbnail(msg.author.avatarURL)
               .setTitle('Wyrzucanie')
-                      .setFooter('LiseqBot Nic dodać nic ująć')
 .setColor('#eb4934')
               .setDescription('Nie masz kogo wyrzucic!')
               msg.channel.send(embed);
@@ -39,7 +36,6 @@ module.exports.run = (bot, msg, args) => {
                 let embed1 = new discord.MessageEmbed()
                 .setThumbnail(msg.author.avatarURL)
                 .setTitle('Wyrzucanie')
-        .setFooter('LiseqBot Nic dodać nic ująć')
                 .setColor('#eb4934')
                 .setDescription('Nie posiadasz uprawnienia `KICK_MEMBERS` aby uzyc tej komendy!')
                 msg.channel.send(embed1);

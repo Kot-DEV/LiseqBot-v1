@@ -6,16 +6,23 @@ module.exports.run = async(bot, message, args) => {
     let embed = new discord.MessageEmbed()
     .setTitle('Ascii')
     .setDescription('Prawidlowe uzycie: `l!ascii <tekst>`')
-    .setFooter('LiseqBot Nic dodać nic ująć')
+    .setColor('#5eff00')
     if(!args[0]) return message.channel.send(embed);
-    const msg = args.join('');
-    figlet.text(msg, function (err, data){
+    const ms = args.join(" ");
+    const msg = ms.replace(" ", "\n")
+
+    figlet.text(msg, function (err, data1 ){
         if(err) {
             console.log("Something Went Wronng.");
             console.dir(err);
         }
-        message.channel.send('``` \n' + data + '\n ```');    
-    });
+            
+                const e = new discord.MessageEmbed()
+                e.setDescription('```' + data1 + '```')
+                e.setColor('#5eff00')
+                e.setTitle('Ascii!')
+                message.channel.send(e)    
+         });
 };
 
 module.exports.help = {

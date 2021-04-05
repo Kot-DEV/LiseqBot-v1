@@ -3,7 +3,7 @@ const discord = require('discord.js')
 const fs = require('fs');
 const colors = require('colors');
 const config = require('./config.js');
-const bot = new discord.Client();
+const bot = new discord.Client({ disableEveryone: true, ws: { properties: { $browser: "Discord iOS" }} });
 var serwy = bot.guilds.cache.size;
 const moment = require('moment');
 require('moment-duration-format')
@@ -20,9 +20,42 @@ bot.ustawienia = new Enmap({
       meme_channel: "false",
       meme_channel_id: "brak",
       logs_channel: "false",
-      logs_channel_id: "brak"
+      logs_channel_id: "brak",
+      verify: "false",
+      verify_channel_id: "brak",
+      verify_role_id: "brak",
+      premium: "false"
     }
   });
+
+bot.on('guildMemberAdd', (member) => {
+    if(!bot.ustawienia.get(member.guild.id).verify == "true") return;
+    const embed = new discord.MessageEmbed()
+    .setTitle('Zweryfikuj się aby mieć dostęp do kanałów!')
+    .setDescription('Przepisz ten kod na kanale weryfikacyjnym aby zdobyć dostęp do wszystkich kanałów! \n \n `B9A4`')
+    .setColor('#5eff00')
+    member.send(embed);
+});
+
+
+
+bot.on('message', message => {
+    if(message.channel.type === "dm") return;
+    if(message.author.bot) return;
+    if(message.channel.id == bot.ustawienia.get(message.guild.id).verify_channel_id) {
+        if(message.content == 'B9A4') { 
+        message.delete()
+        message.member.roles.add(bot.ustawienia.get(message.guild.id).verify_role_id);
+        const embed = new discord.MessageEmbed()
+        .setTitle('Zostałeś pomyślnie zweryfikowany')
+        .setDescription('Dziękujemy za przejście procesu weryfikacyjnego. Weryfikacja przebiegła pomyślnie.')
+        .setColor('#5eff00')
+        message.author.send(embed);
+    } else {
+        message.delete();
+    }
+    }
+});
 
 
 bot.on('guildCreate', guild => {
@@ -167,6 +200,7 @@ fs.readdir('./src/app/cmds', (err, files) => {
 
 //Po wpisaniu komendy
 bot.on("message", async(message) => {
+    if(message.channel.type === 'dm') return;
     const guildConf = bot.ustawienia.get(message.guild.id);
     if(message.content.indexOf(guildConf.prefix) !== 0) return;; 
         if(message.content == guildConf.prefix) return;
@@ -175,7 +209,6 @@ bot.on("message", async(message) => {
         const command = args.shift().slice(guildConf.prefix.length).toLowerCase();
         const cmd = bot.commands.get(command)
             if(cmd) {
-            if(message.channel.type === 'dm') return;
             console.log("Osoba o nicku ".yellow + message.author.username.white + " uzyla komendy ".yellow + message.content.white + " \n Na serwerze ".yellow + message.guild.name.white);
             cmd.run(bot, message, args);
             message.react('775412540439920640');
@@ -186,6 +219,7 @@ bot.on("message", async(message) => {
 
 //Customowe odpowiedzi
 bot.on('message', message => {
+    if(message.channel.type === "dm") return;
     if(config.token === 'NzkyNDg2OTA5OTU1ODAxMTEw.X-ea8w.hht66FDNhcWMTD6gWT7hS3lAZ_k') return;
     if(message.author.bot) return;
     if(message.content.toLowerCase().includes("liseqbot") || message.content.toLowerCase().includes("bocie!")) {
@@ -200,6 +234,7 @@ bot.on('message', message => {
 
 //Po wpisaniu prefixu
 bot.on('message', message => {
+    if(message.channel.type === "dm") return;
     if(message.content == bot.ustawienia.get(message.guild.id).prefix) {
         const e = new discord.MessageEmbed()
         .setTitle('Wpisałeś prefix.')
@@ -208,12 +243,10 @@ bot.on('message', message => {
     }
 });
 
-//"Logowanie" bota
-bot.login(config.token); 
+ 
 
 //Event pomocy. (Todo: Zmienić to na fetch reactions.)
 bot.on('messageReactionAdd', async(reakcja, user) => {
-   if(reakcja.message.channel.id == bot.ustawienia.get(reakcja.message.guild.id).meme_channel_id) return;
    const prefix = bot.ustawienia.get(reakcja.message.guild.id).prefix;
    if(reakcja.message.partial) await reakcja.message.fetch();
    if(reakcja.partial) await reakcja.fetch();
@@ -226,7 +259,8 @@ bot.on('messageReactionAdd', async(reakcja, user) => {
             if(item.title.includes("Pomoc")) {
                 const e = new discord.MessageEmbed()
                 .setTitle('4fun')
-                .setDescription(`${prefix}8ball \n ${prefix}ascii \n ${prefix}avatar \n ${prefix}cytat \n ${prefix}koszt \n ${prefix}liczba \n ${prefix}mchead \n ${prefix}lis \n ${prefix}miś \n ${prefix}obrazek \n ${prefix}triggered \n ${prefix}kalkuluj`)
+                .setColor('#5eff00')
+                .setDescription(`**${prefix}**8ball \n **${prefix}**ascii \n **${prefix}**avatar \n **${prefix}**cytat \n **${prefix}**koszt \n **${prefix}**liczba \n **${prefix}**mchead \n **${prefix}**lis \n **${prefix}**miś \n **${prefix}**obrazek \n **${prefix}**triggered \n **${prefix}**kalkuluj`)
                  reakcja.message.channel.send(e); 
         }});
     } else if(reakcja.emoji.name === '🔨') { // moderacyjne
@@ -234,19 +268,19 @@ bot.on('messageReactionAdd', async(reakcja, user) => {
             if(item.title.includes("Pomoc")) {
                 const e = new discord.MessageEmbed()
                 .setTitle('Moderacyjne')
-                .setDescription(`${prefix}ban \n ${prefix}clear \n ${prefix}kick \n ${prefix}nuke \n ${prefix}say \n ${prefix}slowmode \n ${prefix}config`)
+                .setColor('#5eff00')
+                .setDescription(`**${prefix}**ban \n **${prefix}**clear \n **${prefix}**kick \n **${prefix}**nuke \n **${prefix}**say \n **${prefix}**slowmode \n **${prefix}**config`)
                 reakcja.message.channel.send(e);
             }});
         } else if(reakcja.emoji.name === 'ℹ️') { // informacyjne
             reakcja.message.embeds.some((item) => {
                 const e = new discord.MessageEmbed()
                 .setTitle('Informacyjne')
-                .setDescription(`${prefix}bot \n ${prefix}pomoc \n ${prefix}server-info \n ${prefix}status`)
+                .setColor('#5eff00')
+                .setDescription(`**${prefix}**bot \n **${prefix}**pomoc \n **${prefix}**server-info \n **${prefix}**status`)
                 reakcja.message.channel.send(e);
             });
         }
-        reakcja.message.reactions.removeAll();
-        reakcja.message.delete();
 });
 // Funkcje:
 //Czy plik jest .png
@@ -267,3 +301,5 @@ function attachIsGif(msgAttach) {
     //True if this url is a Gif image.
     return url.indexOf("gif", url.length - "gif".length /*or 3*/) !== -1;
 }
+
+bot.login(config.token);

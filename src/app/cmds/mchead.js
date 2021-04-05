@@ -7,14 +7,12 @@ module.exports.run = (bot, message, args) => {
             let embed = new discord.MessageEmbed()
             .setTitle('Glowa gracza o nicku ' + args[0]) 
             .setImage(url)
-            .setColor('#98f542')
-            .setFooter('LiseqBot Nic dodać nic ująć')
+            .setColor('#5eff00')
             message.channel.send(embed);
         } else {
             let embed = new discord.MessageEmbed()
             .setTitle('Nieprawidlowe uzycie komendy.')
-            .setDescription('Prawidlowe uzycie l!mchead nick.')
-            .setFooter('LiseqBot Nic dodać nic ująć')          
+            .setDescription('Prawidlowe uzycie l!mchead nick.')       
             message.channel.send(embed);
         }
     }

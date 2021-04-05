@@ -29,7 +29,6 @@ module.exports.run = (bot, message, args) => {
             .setTitle('Losowe zdjęcie!')
             .setColor('#009144')
             .setImage(url)
-            .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed2)
     } else if (message.content == config.prefix + 'obrazek -dm') {
         var url;
@@ -59,7 +58,6 @@ module.exports.run = (bot, message, args) => {
             .setTitle('Losowe zdjęcie!')
             .setColor('#009144')
             .setImage(url)
-            .setFooter('LiseqBot Nic dodać nic ująć')
         message.author.send(embed2)
     }
 };

@@ -6,8 +6,7 @@ module.exports.run = (bot, message, args) => {
         const embed = new discord.MessageEmbed() 
         .setTitle('Koszt')
         .setDescription('Kosztujesz ' + koszt + '**$**')
-        .setColor('#6cf542')
-        .setFooter('LiseqBot Nic dodać nic ująć')
+        .setColor('#5eff00')
         message.channel.send(embed);
     }
 };

@@ -24,6 +24,7 @@ module.exports.run = (bot, message, args) => {
         const e = new discord.MessageEmbed()
         .setTitle('Kalkulator')
         .setDescription(`Wynik to: ${parseInt(wynik)}`)
+        .setColor('#5eff00')
         message.channel.send(e);
     }
 }

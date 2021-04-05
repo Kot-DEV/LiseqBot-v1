@@ -75,9 +75,8 @@ module.exports.run = (bot, message, args) => {
         }
         let embed2 = new discord.MessageEmbed()
             .setTitle('Randomowy Lis!')
-            .setColor('#009144')
+            .setColor('#5eff00')
             .setImage(url)
-            .setFooter('LiseqBot Nic dodać nic ująć')
         message.channel.send(embed2)
     } else if (message.content == prefix + 'lis -dm') {
         var url;
@@ -153,9 +152,8 @@ module.exports.run = (bot, message, args) => {
         }
         let embed2 = new discord.MessageEmbed()
             .setTitle('Randomowy Lis!')
-            .setColor('#009144')
+            .setColor('#5eff00')
             .setImage(url)
-            .setFooter('LiseqBot Nic dodać nic ująć')
         message.author.send(embed2)
     }
 };
