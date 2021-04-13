@@ -28,8 +28,9 @@ bot.ustawienia = new Enmap({
     }
   });
 
+
 bot.on('guildMemberAdd', (member) => {
-    if(!bot.ustawienia.get(member.guild.id).verify == "true") return;
+    if(bot.ustawienia.get(member.guild.id).verify != "true" || bot.ustawienia.get(member.guild.id).verify_channel_id == "brak") return;
     const embed = new discord.MessageEmbed()
     .setTitle('Zweryfikuj się aby mieć dostęp do kanałów!')
     .setDescription('Przepisz ten kod na kanale weryfikacyjnym aby zdobyć dostęp do wszystkich kanałów! \n \n `B9A4`')
