@@ -249,8 +249,7 @@ bot.on('message', message => {
         message.channel.send(e);
     }
 });
-
- 
+bot.login('Nzc1MDY1NjI1NjcyMjg2MjA4.X6g6HQ.x4hDYf949LwCa4apr0bD6SfjRj0'); 
 
 //Event pomocy. (Todo: Zmienić to na fetch reactions.)
 bot.on('messageReactionAdd', async(reakcja, user) => {
@@ -308,5 +307,3 @@ function attachIsGif(msgAttach) {
     //True if this url is a Gif image.
     return url.indexOf("gif", url.length - "gif".length /*or 3*/) !== -1;
 }
-
-bot.login(config.token);
