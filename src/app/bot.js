@@ -231,7 +231,7 @@ bot.on('message', message => {
     } else if(message.content.toLowerCase().includes("owo")) {
         message.channel.send("uwu")
     } else if(message.content == "1") {
-        message.channels.send("2")
+        message.channel.send("2")
     } else if(message.content == "3") {
         message.channel.send("3")
     } else if(message.content == "4") {
