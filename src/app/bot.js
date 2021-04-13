@@ -230,7 +230,13 @@ bot.on('message', message => {
         message.channel.send("owo")
     } else if(message.content.toLowerCase().includes("owo")) {
         message.channel.send("uwu")
-    }                                                  
+    } else if(message.content == "1") {
+        message.channels.send("2")
+    } else if(message.content == "3") {
+        message.channel.send("3")
+    } else if(message.content == "4") {
+        message.channel.send("wtf czm liczymy? xD")
+    }
 });
 
 //Po wpisaniu prefixu
