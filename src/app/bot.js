@@ -2,13 +2,13 @@
 const discord = require('discord.js')
 const fs = require('fs');
 const colors = require('colors');
-const config = require('./config.js');
 const bot = new discord.Client({ disableEveryone: true, ws: { properties: { $browser: "Discord iOS" }} });
 var serwy = bot.guilds.cache.size;
 const moment = require('moment');
 require('moment-duration-format')
 const Enmap = require('enmap');
 const e = require('express');
+const { config } = require('process');
 // config
 bot.ustawienia = new Enmap({
     name: "ustawienia",
